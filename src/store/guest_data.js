@@ -33,8 +33,6 @@ export default {
       state.stardatas = Data;
     },
     'setData_search': function (state, Data) {
-
-      console.log('Data:' + Data);
       state.curPage_search_data = [];
       state.searchdatas = [];
       if (Data[0].length == 0 && Data[1].length == 0) {
@@ -90,6 +88,7 @@ export default {
     }, s) {
       window.scrollTo(0, 0);
       let type = s.type;
+      state.hasFound = true;
       try {
         switch (type) {
           case 1: {
@@ -113,7 +112,7 @@ export default {
             break;
           }
         }
-      } catch (e) { 
+      } catch (e) {
         alert('异步请求失败，请检查网络并刷新页面');
       }
 
